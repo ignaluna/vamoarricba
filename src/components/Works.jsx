@@ -80,11 +80,13 @@ const ProjectCard = ({
             <h2 className="bg-primary rounded-lg p-3 text-black-100 font-bold">{ price? price + "U$D" : "Free"}</h2>
           </div>
           <p className='mt-4 text-secondary text-[14px]'>{description}</p>
+          <Link href="https://wa.link/3kqzqb" target="_blank">
           <button class="flex items-center font-bold mt-4 text-black-100 bg-primary border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">Reservar
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
           </button>
+          </Link>
           <p class="text-xs text-gray-500 mt-3">Todos los productos y servicios estan sujetos a disponibilidad.</p>
         </div>
       </Tilt>
@@ -105,8 +107,8 @@ const Works = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className='mt-3 text-black-100 text-[17px] max-w-3xl leading-[30px]'
         >
-          Fernet, cuarteto y alegría de exportación. En Vamo Arricba organizamos tu visita a la república de Córdoba.
-          Fiestas, bailes, trecking, paisajes, gastronomía, compras y un montón más. Todo a un precio barataso.
+          Cotizamos tu visita a la república de Córdoba. Viaje en colectivo IDA y VUELTA 80 U$D.
+          Fernet, cuarteto y alegría de exportación. Todo a un precio barataso.
         </motion.p>
       </div>
 

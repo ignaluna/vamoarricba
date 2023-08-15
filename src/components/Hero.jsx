@@ -15,7 +15,7 @@ const Hero = () => {
             Experiencia inmersiva cordobesa, conocé la cultura del culiadaso.
           </p>
         </div>
-        <img src="/logo.png" alt="viajes a cordoba" className=""></img>
+        <img src="/logo.png" alt="viajes a cordoba" className="transform-scale hover:scale-150"></img>
       </div>
     </section>
   );
