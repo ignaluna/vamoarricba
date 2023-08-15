@@ -68,7 +68,7 @@ const ProjectCard = ({
               className='bg-black-100 text-white-100 w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
             >
               <IonIcon
-                icon={logoInstagram} // Asigna el ícono específico que deseas mostrar
+                icon={logoInstagram}
               />
             </div>
           </div>
