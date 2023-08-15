@@ -16,7 +16,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
 // import required modules
-import { FreeMode, Pagination } from 'swiper/modules';
+import { FreeMode, Navigation, Pagination } from 'swiper/modules';
 import { logoInstagram } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 
@@ -25,13 +25,14 @@ const ProjectCard = ({
   name,
   description,
   price,
+  pic,
   video,
   source_code_link,
 }) => {
   const videoRef = useRef(null);
 
   useEffect(() => {
-    videoRef.current.play();
+   if (video){videoRef.current.play();}
   }, []);
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
@@ -41,10 +42,11 @@ const ProjectCard = ({
           scale: 1,
           speed: 450,
         }}
-        className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
+        className='bg-tertiary p-5 rounded-2xl w-[360px]'
       >
         <div className='relative w-full h-[230px]'>
-          <video
+          {
+          video ? <video
             ref={videoRef}
             src={video}
             alt='project_image'
@@ -52,7 +54,13 @@ const ProjectCard = ({
             autoPlay
             loop
             muted
+          /> : 
+          <img
+          src={pic}
+          alt="Actividades en cordoba"
+          className='w-full h-full object-cover rounded-2xl'
           />
+          }
 
           <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
             <div
@@ -69,7 +77,7 @@ const ProjectCard = ({
         <div className='mt-5'>
           <div className="flex w-full justify-between items-center text-[24px]">
             <h3 className='text-black-100 font-bold bg-primary rounded-lg p-3 text-[24px]'>{name}</h3>
-            <h2 className="bg-primary rounded-lg p-3 text-black-100 font-bold">{price}U$D</h2>
+            <h2 className="bg-primary rounded-lg p-3 text-black-100 font-bold">{ price? price + "U$D" : "Free"}</h2>
           </div>
           <p className='mt-4 text-secondary text-[14px]'>{description}</p>
           <button class="flex items-center font-bold mt-4 text-black-100 bg-primary border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">Reservar
@@ -97,15 +105,33 @@ const Works = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className='mt-3 text-black-100 text-[17px] max-w-3xl leading-[30px]'
         >
-          Fernet, cuarteto y alegría de exportación. En Vamo Arricba organizamos tu visita a la republica de Córdoba.
-          Fiestas, bailes, trecking, paisajes, gastronomía, compras y un montón más. Todo un precio barataso.
+          Fernet, cuarteto y alegría de exportación. En Vamo Arricba organizamos tu visita a la república de Córdoba.
+          Fiestas, bailes, trecking, paisajes, gastronomía, compras y un montón más. Todo a un precio barataso.
         </motion.p>
       </div>
 
-      <div className='mt-20 flex flex-wrap gap-7'>
+      <div className='mt-20 hidden lg:flex flex-wrap gap-7'>
         <Swiper
           slidesPerView={3}
           spaceBetween={30}
+          freeMode={true}
+          pagination={{
+            clickable: true,
+          }}
+          
+          modules={[FreeMode, Pagination]}
+        >
+          {projects.map((project, index) => (
+            <SwiperSlide>
+              <ProjectCard key={`project-${index}`} index={index} {...project} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      <div className='mt-20 lg:hidden flex flex-wrap gap-7'>
+        <Swiper
+          slidesPerView={1}
+          spaceBetween={10}
           freeMode={true}
           loop={true}
           pagination={{
