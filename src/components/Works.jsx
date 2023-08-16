@@ -3,7 +3,6 @@ import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
-import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
@@ -16,7 +15,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
 // import required modules
-import { FreeMode, Navigation, Pagination } from 'swiper/modules';
+import { FreeMode, Pagination } from 'swiper/modules';
 import { logoInstagram } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 
@@ -80,13 +79,13 @@ const ProjectCard = ({
             <h2 className="bg-primary rounded-lg p-3 text-black-100 font-bold">{ price? price + "U$D" : "Free"}</h2>
           </div>
           <p className='mt-4 text-secondary text-[14px]'>{description}</p>
-          <Link href="https://wa.link/3kqzqb" target="_blank">
+          <a href="https://wa.link/3kqzqb" target="_blank" rel="noopener noreferrer">
           <button class="flex items-center font-bold mt-4 text-black-100 bg-primary border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">Reservar
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
           </button>
-          </Link>
+          </a>
           <p class="text-xs text-gray-500 mt-3">Todos los productos y servicios estan sujetos a disponibilidad.</p>
         </div>
       </Tilt>
